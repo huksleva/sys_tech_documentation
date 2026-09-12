@@ -1,0 +1,65 @@
+\documentclass[11pt,a4paper,sans]{moderncv}
+
+% Стиль оформления moderncv: 'classic' отлично структурирует технические блоки
+\moderncvstyle{classic}
+\moderncvcolor{blue}
+
+% Поля страницы
+\usepackage[scale=0.8]{geometry}
+
+% Настройки шрифтов и локализации для LuaLaTeX (согласно методичке)
+\usepackage{fontspec}
+\defaultfontfeatures{Renderer=Basic, Ligatures=TeX}
+\newfontfamily\cyrillicfonttt{CMU Typewriter Text}
+\newfontfamily\cyrillicfont{CMU Sans Serif}
+\setmainfont{CMU Sans Serif}
+\setsansfont{CMU Sans Serif}
+\setmonofont{CMU Typewriter Text}
+
+\usepackage{polyglossia}
+\setdefaultlanguage{russian}
+\setotherlanguages{english}
+
+% Персональные и контактные данные
+\name{Леонид}{Тоц}
+\title{Разработчик ПО}
+\address{Санкт-Петербург}{Россия}
+\phone[mobile]{+7~(911)~796-82-29}
+\email{leonid005xc@gmail.com}
+\homepage{leonidtots.dev}
+\social[github]{huksleva}
+\extrainfo{Telegram: @pots135}
+
+\begin{document}
+
+\makecvtitle
+
+\section{О себе}
+\cvitem{}{Студент направления «Технологии разработки ПО и обработки больших данных» (бакалавриат). Пишу на Python, создаю API, автоматизирую задачи, работаю с реляционными и нереляционными базами данных. Активно применяю FastAPI, Flask, PostgreSQL, MongoDB, Docker. Открыт к позиции Junior-разработчика.}
+
+\section{Образование}
+\cventry{2024--н.\,в.}{Бакалавриат, 09.03.01 Информатика и вычислительная техника}{РГПУ им. А. И. Герцена}{Санкт-Петербург}{}{Технологии разработки ПО и обработки больших данных. Перевод с понижением на курс (зима 2024).}
+\cventry{2023--2024}{Бакалавриат (2--3 семестр), 01.03.02 Прикладная математика и информатика}{РГПУ им. А. И. Герцена}{Санкт-Петербург}{}{}
+\cventry{2023}{Бакалавриат (1 семестр), 09.03.02 Информационные системы и технологии}{Университет ИТМО}{Санкт-Петербург}{}{}
+
+\section{Проекты и достижения}
+\cventry{2026}{\textbf{Tramplin -- AI Career Platform}}{Хакатон IF... ELSE 2026 (2-е место)}{}{}{%
+Платформа для студентов и работодателей с ролевым доступом, AI-помощью, двухуровневой модерацией и картой возможностей.\\
+\textbf{Стек:} Python, FastAPI, PostgreSQL, Docker, JavaScript, Vite.\\
+\textbf{Репозиторий:} \url{https://github.com/huksleva/tramplin}}
+
+\vspace{0.2cm}
+
+\cventry{2025}{\textbf{Epidemic Spread Simulation}}{Учебный / исследовательский проект}{}{}{%
+Модель клеточного автомата для распространения инфекционных заболеваний (COVID-19, грипп, корь). Реализована визуализация статистики в реальном времени.\\
+\textbf{Стек:} Python, NumPy, Matplotlib.\\
+\textbf{Репозиторий:} \url{https://github.com/huksleva}}
+
+\section{Технические навыки}
+\cvitem{Языки программирования}{Python, JavaScript, TypeScript, C, C++, C\#}
+\cvitem{Бэкенд}{FastAPI, Flask, Node.js, SQLAlchemy, Alembic}
+\cvitem{Базы данных}{PostgreSQL, MongoDB, Elasticsearch}
+\cvitem{Фронтенд}{HTML5, CSS3, React, Next.js, Tailwind CSS, Vite}
+\cvitem{Инфраструктура и DevOps}{Docker, Git, Yandex Cloud, Linux}
+
+\end{document}

@@ -1,0 +1,37 @@
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_SUPERUSER_PASSWORD}
+      WIKI_DB_PASSWORD: ${WIKI_DB_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+    volumes:
+      - wiki-db-data:/var/lib/postgresql/data
+      - ./docker-init/01-create-wiki-role.sh:/docker-entrypoint-initdb.d/01-create-wiki-role.sh:ro
+
+  wiki:
+    image: ghcr.io/requarks/wiki:2
+    depends_on:
+      db:
+        condition: service_healthy
+    init: true
+    environment:
+      DB_TYPE: postgres
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: wiki_alien
+      DB_PASS: ${WIKI_DB_PASSWORD}
+      DB_NAME: wiki_alien
+    ports:
+      - "127.0.0.1:8080:3000"
+    restart: unless-stopped
+
+volumes:
+  wiki-db-data:

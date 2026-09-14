@@ -1,0 +1,85 @@
+%!TEX TS-program = lualatex
+\documentclass[aspectratio=169]{beamer}
+
+% Настройка языка и шрифтов для LuaLaTeX
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{russian}
+\setotherlanguage{english}
+\setmainfont{DejaVu Serif}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+
+% Оформление
+\usetheme{Madrid}
+\usecolortheme{whale}
+
+% Дополнительные пакеты
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
+
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single
+}
+
+% Метаданные
+\title[Инструменты визуализации]{Разработка научных презентаций и постеров в LaTeX}
+\author[Тоц Л. А.]{Тоц Леонид Александрович}
+\institute[ИВТ-2]{Группа ИВТ-2}
+\date{\today}
+
+\begin{document}
+
+% Титульный слайд
+\frame{\titlepage}
+
+% Слайд 1: Списки и оверлеи
+\begin{frame}{Основы Beamer: Списки и наложения}
+    \begin{itemize}
+        \item<1-> Презентации компилируются в стандартный формат PDF.
+        \item<2-> Наложения (\texttt{overlays}) позволяют пошагово выводить тезисы.
+        \item<3-> Поддержка динамического акцентирования внимания слушателей.
+    \end{itemize}
+\end{frame}
+
+% Слайд 2: Мультиколонки и графика
+\begin{frame}{Структурирование: Колонки и графика}
+    \begin{columns}[c]
+        \begin{column}{0.48\textwidth}
+            \textbf{Преимущества разделения на колонки:}
+            \begin{itemize}
+                \item Рациональное использование площади экрана 16:9;
+                \item Сопоставление кода и графиков;
+                \item Улучшенная читаемость данных.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \begin{center}
+                % Заглушка стандартного изображения LaTeX
+                \includegraphics[width=0.85\linewidth]{example-image}
+            \end{center}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% Слайд 3: Блоки, код и ссылки
+\begin{frame}[fragile]{Информационные блоки и листинги}
+    \begin{block}{Ключевой вывод}
+        Инструменты \texttt{listings} и блоки окружения позволяют оформлять листинги без потери форматирования.
+    \end{block}
+
+    \vspace{0.5em}
+    \begin{lstlisting}[language=Python]
+def calculate_metrics(data):
+    # Пример обработки выборки
+    return sum(data) / len(data)
+    \end{lstlisting}
+
+    \vspace{0.5em}
+    Материалы и документация доступны по ссылке: \href{https://ctan.org/pkg/beamer}{\color{blue}\underline{CTAN: Beamer Package}}.
+\end{frame}
+
+\end{document}

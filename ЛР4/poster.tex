@@ -1,0 +1,174 @@
+%!TEX TS-program = lualatex
+\documentclass[a0paper,portrait,25pt]{tikzposter}
+
+% Поддержка кириллицы и шрифтов для LuaLaTeX
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{russian}
+\setotherlanguage{english}
+
+\setmainfont{DejaVu Sans}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+\newfontfamily\cyrillicfont{DejaVu Sans}
+\newfontfamily\cyrillicfontsf{DejaVu Sans}
+\newfontfamily\cyrillicfonttt{DejaVu Sans Mono}
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+
+% Базовая тема
+\usetheme{Simple}
+\usecolorstyle{Default}
+
+% Принудительная настройка контрастных цветов (белый фон, синие акценты)
+\colorlet{backgroundcolor}{white}
+\colorlet{framecolor}{blue!70!black}
+\colorlet{titlefgcolor}{blue!80!black}
+\colorlet{blocktitlefgcolor}{blue!80!black}
+\colorlet{blocktitlebgcolor}{white}
+\colorlet{blockbodybgcolor}{white}
+\colorlet{blockbodyfgcolor}{black}
+
+% Метаданные с центрированием и фиксацией ширины
+\title{\parbox{\linewidth}{\centering \textbf{Разработка масштабируемых систем\\визуализации данных}}}
+\author{Тоц Леонид Александрович}
+\institute{Группа ИВТ-2}
+\usepackage{pgfplots}\pgfplotsset{compat=1.18}
+
+\begin{document}
+
+\maketitle
+
+% Блок аннотации
+\block{Аннотация (Abstract)}{
+    \Large
+    В работе исследуются алгоритмы и конвейеры автоматизированной вёрстки сложных аналитических данных.
+    Рассмотрены подходы к представлению многоуровневых структурных графов, векторных диаграмм и формированию
+    отчётных постеров формата A0 без потери типографического качества при масштабировании.
+}
+
+\begin{columns}
+    % ================= ЛЕВАЯ КОЛОНКА =================
+    \column{0.5}
+
+    \block{1. Введение и постановка задачи}{
+        \large
+        При визуализации результатов научных исследований возникает задача компактного и наглядного размещения графики, математических выражений и программного кода.
+
+        \vspace{0.8em}
+        \textbf{Основные цели исследования:}
+        \begin{itemize}
+            \item Обеспечение воспроизводимости графиков и блок-схем на базе декларативного кода \LaTeX;
+            \item Исключение артефактов масштабирования за счёт сквозного векторного рендеринга;
+            \item Оптимизация компоновки блоков формата A0.
+        \end{itemize}
+    }
+
+    \block{2. Архитектура и методы генерации}{
+        \large
+        Конвейер генерации визуализации состоит из трёх последовательных этапов:
+
+        \vspace{1.2em}
+        \begin{center}
+        \begin{tikzpicture}[
+            node distance = 1.2cm,
+            box/.style = {
+                rectangle,
+                rounded corners=10pt,
+                minimum width=6.2cm,
+                minimum height=3.2cm,
+                align=center,
+                font=\large\bfseries,
+                fill=blue!10,
+                draw=blue!80!black,
+                line width=2pt
+            },
+            arrow/.style = {-{Stealth[scale=1.3]}, line width=2.5pt, draw=blue!80!black}
+        ]
+            \node[box] (in) {Входные данные\\(CSV / JSON)};
+            \node[box, fill=teal!15, draw=teal!80!black, right=of in] (proc) {Транслятор\\TikZ / PGF};
+            \node[box, fill=orange!15, draw=orange!80!black, right=of proc] (out) {Векторный\\макет A0};
+
+            \draw[arrow] (in) -- (proc);
+            \draw[arrow] (proc) -- (out);
+        \end{tikzpicture}
+        \end{center}
+
+        \vspace{1em}
+        Математическая оптимизация размещения элементов графа:
+        \begin{equation*}
+            E(p) = \sum_{(u,v) \in \mathcal{E}} \|p_u - p_v\|^2 + \lambda \sum_{u \neq v} \frac{1}{\|p_u - p_v\|}
+        \end{equation*}
+    }
+
+    \block{3. Практические результаты}{
+        \large
+        Применение декларативной вёрстки позволило сократить время подготовки финальной графики к публикации на 42\% по сравнению с классическими растровыми редакторами.
+    }
+
+    % ================= ПРАВАЯ КОЛОНКА =================
+    \column{0.5}
+
+    \block{4. Анализ производительности}{
+        \large
+        Оценка времени компиляции и нагрузки на память при различном количестве узлов графа:
+
+        \vspace{0.8em}
+        \begin{center}
+            \begin{center}
+                \begin{tikzpicture}
+                    \begin{axis}[
+                        ybar,
+                        bar width=1.5cm,
+                        width=0.75\linewidth,
+                        height=14cm,
+                        ylabel={\textbf{Время рендеринга (мс)}},
+                        symbolic x coords={50 узлов, 200 узлов, 1000 узлов},
+                        xtick=data,
+                        nodes near coords,
+                        nodes near coords align={vertical},
+                        every node near coord/.append style={font=\large\bfseries},
+                        ymin=0, ymax=600,
+                        ymajorgrids=true,
+                        grid style=dashed,
+                        legend style={at={(0.5,1.05)}, anchor=south, legend columns=-1, font=\Large},
+                        tick label style={font=\large},
+                        label style={font=\Large\bfseries}
+                    ]
+                        \addplot[draw=blue!80!black, fill=blue!40] coordinates {(50 узлов, 45) (200 узлов, 180) (1000 узлов, 510)};
+                        \addplot[draw=teal!80!black, fill=teal!40] coordinates {(50 узлов, 22) (200 узлов, 78) (1000 узлов, 240)};
+                        \legend{Базовый метод, Предложенный метод}
+                    \end{axis}
+                \end{tikzpicture}
+            \end{center}
+        \end{center}
+
+        \vspace{0.8em}
+        \textbf{Ключевые выводы тестирования:}
+        \begin{enumerate}
+            \item Высокая точность позиционирования типографических гарнитур;
+            \item Изоляция слоёв диаграмм исключает взаимное перекрытие блоков;
+            \item Полная поддержка векторного стандарта при экспорте в PDF.
+        \end{enumerate}
+    }
+
+    \block{5. Заключение}{
+        \large
+        Использование пакета \texttt{tikzposter} в связке с компилятором \textbf{LuaLaTeX} обеспечивает стабильную сборку сложных академических постеров с поддержкой русского языка. Шаблон пригоден для дипломных докладов и постерных конференций.
+    }
+
+    \block{6. Список литературы}{
+        \normalsize
+        \begin{enumerate}
+            \item \textbf{Tantau T.} \textit{The TikZ and PGF Packages}. Manual for version 3.1.10, CTAN, 2023.
+            \item \textbf{Richter C.} \textit{The tikzposter package: Guidelines and documentation}. CTAN, 2014.
+            \item \textbf{Knuth D. E.} \textit{The TeXbook}. Addison-Wesley, 1986.
+        \end{enumerate}
+    }
+
+\end{columns}
+
+\end{document}

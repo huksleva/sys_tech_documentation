@@ -6,9 +6,15 @@
 \usepackage{polyglossia}
 \setmainlanguage{russian}
 \setotherlanguage{english}
-\setmainfont{DejaVu Serif}
+
+\setmainfont{DejaVu Sans}
 \setsansfont{DejaVu Sans}
 \setmonofont{DejaVu Sans Mono}
+
+% Семейства шрифтов для polyglossia
+\newfontfamily\cyrillicfont{DejaVu Sans}
+\newfontfamily\cyrillicfontsf{DejaVu Sans}
+\newfontfamily\cyrillicfonttt{DejaVu Sans Mono}
 
 % Оформление
 \usetheme{Madrid}
@@ -16,13 +22,15 @@
 
 % Дополнительные пакеты
 \usepackage{graphicx}
+\usepackage{tikz}
 \usepackage{listings}
 \usepackage{hyperref}
 
 \lstset{
     basicstyle=\ttfamily\small,
     breaklines=true,
-    frame=single
+    frame=single,
+    showstringspaces=false
 }
 
 % Метаданные
@@ -34,18 +42,20 @@
 \begin{document}
 
 % Титульный слайд
-\frame{\titlepage}
+\begin{frame}[plain]
+    \titlepage
+\end{frame}
 
-% Слайд 1: Списки и оверлеи
+% Слайд 1: Списки и наложения (overlays)
 \begin{frame}{Основы Beamer: Списки и наложения}
     \begin{itemize}
         \item<1-> Презентации компилируются в стандартный формат PDF.
-        \item<2-> Наложения (\texttt{overlays}) позволяют пошагово выводить тезисы.
+        \item<2-> Механизм наложений (\texttt{overlays}) позволяет пошагово выводить тезисы.
         \item<3-> Поддержка динамического акцентирования внимания слушателей.
     \end{itemize}
 \end{frame}
 
-% Слайд 2: Мультиколонки и графика
+% Слайд 2: Мультиколонки и графика (Векторный график TikZ вместо серой заглушки)
 \begin{frame}{Структурирование: Колонки и графика}
     \begin{columns}[c]
         \begin{column}{0.48\textwidth}
@@ -58,28 +68,39 @@
         \end{column}
         \begin{column}{0.48\textwidth}
             \begin{center}
-                % Заглушка стандартного изображения LaTeX
-                \includegraphics[width=0.85\linewidth]{example-image}
+                \begin{tikzpicture}[scale=0.85]
+                    % Координатные оси
+                    \draw[->, thick] (0,0) -- (4.5,0) node[right] {\footnotesize $x$};
+                    \draw[->, thick] (0,0) -- (0,3.2) node[above] {\footnotesize $f(x)$};
+                    \draw[gray!30, dashed] (0,0) grid (4,3);
+                    % Графики
+                    \draw[thick, blue, smooth] plot coordinates {(0.2,0.3) (1,1.5) (2,2.3) (3,2.7) (4,2.9)};
+                    \draw[thick, red, dashed, smooth] plot coordinates {(0.2,0.1) (1,0.6) (2,1.3) (3,2.1) (4,2.8)};
+                    % Легенда
+                    \node[draw, fill=white, rounded corners=2pt, font=\scriptsize] at (2.6, 0.7) {
+                        \textcolor{blue}{--- Модель} \quad \textcolor{red}{- - Данные}
+                    };
+                \end{tikzpicture}
             \end{center}
         \end{column}
     \end{columns}
 \end{frame}
 
-% Слайд 3: Блоки, код и ссылки
+% Слайд 3: Блоки, листинги кода и гиперссылки
 \begin{frame}[fragile]{Информационные блоки и листинги}
     \begin{block}{Ключевой вывод}
-        Инструменты \texttt{listings} и блоки окружения позволяют оформлять листинги без потери форматирования.
+        Окружение \texttt{lstlisting} в сочетании с опцией \texttt{[fragile]} позволяет оформлять исходный код без синтаксических сбоев.
     \end{block}
 
     \vspace{0.5em}
     \begin{lstlisting}[language=Python]
 def calculate_metrics(data):
-    # Пример обработки выборки
+    # Обработка выборки
     return sum(data) / len(data)
     \end{lstlisting}
 
     \vspace{0.5em}
-    Материалы и документация доступны по ссылке: \href{https://ctan.org/pkg/beamer}{\color{blue}\underline{CTAN: Beamer Package}}.
+    Документация доступна по ссылке: \href{https://ctan.org/pkg/beamer}{\color{blue}\underline{CTAN: Beamer Package}}.
 \end{frame}
 
 \end{document}

@@ -1,0 +1,16 @@
+#!/bin/sh
+set -eu
+
+: "${WIKI_DB_PASSWORD:?WIKI_DB_PASSWORD must be set}"
+: "${REDMINE_DB_PASSWORD:?REDMINE_DB_PASSWORD must be set}"
+
+psql --variable=ON_ERROR_STOP=1 \
+  --username "$POSTGRES_USER" \
+  --dbname "$POSTGRES_DB" \
+  --set=wiki_password="$WIKI_DB_PASSWORD" \
+  --set=redmine_password="$REDMINE_DB_PASSWORD" <<'SQL'
+CREATE ROLE wiki_lr5 LOGIN PASSWORD :'wiki_password' NOSUPERUSER NOCREATEDB NOCREATEROLE NOINHERIT;
+CREATE DATABASE wiki_lr5 OWNER wiki_lr5 ENCODING 'UTF8';
+CREATE ROLE redmine_lr5 LOGIN PASSWORD :'redmine_password' NOSUPERUSER NOCREATEDB NOCREATEROLE NOINHERIT;
+CREATE DATABASE redmine_lr5 OWNER redmine_lr5 ENCODING 'UTF8';
+SQL

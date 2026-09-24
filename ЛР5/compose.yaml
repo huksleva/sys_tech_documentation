@@ -1,0 +1,59 @@
+name: lr5-alien-invasion
+
+services:
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_SUPERUSER_PASSWORD:?Set POSTGRES_SUPERUSER_PASSWORD in .env}
+      WIKI_DB_PASSWORD: ${WIKI_DB_PASSWORD:?Set WIKI_DB_PASSWORD in .env}
+      REDMINE_DB_PASSWORD: ${REDMINE_DB_PASSWORD:?Set REDMINE_DB_PASSWORD in .env}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./docker-init/01-create-app-databases.sh:/docker-entrypoint-initdb.d/01-create-app-databases.sh:ro
+
+  wiki:
+    image: ghcr.io/requarks/wiki:2
+    restart: unless-stopped
+    init: true
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_TYPE: postgres
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_USER: wiki_lr5
+      DB_PASS: ${WIKI_DB_PASSWORD:?Set WIKI_DB_PASSWORD in .env}
+      DB_NAME: wiki_lr5
+    ports:
+      - "127.0.0.1:8085:3000"
+
+  redmine:
+    image: redmine:6.1
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      REDMINE_DB_POSTGRES: db
+      REDMINE_DB_PORT: "5432"
+      REDMINE_DB_USERNAME: redmine_lr5
+      REDMINE_DB_PASSWORD: ${REDMINE_DB_PASSWORD:?Set REDMINE_DB_PASSWORD in .env}
+      REDMINE_DB_DATABASE: redmine_lr5
+      SECRET_KEY_BASE: ${REDMINE_SECRET_KEY_BASE:?Set REDMINE_SECRET_KEY_BASE in .env}
+    ports:
+      - "127.0.0.1:3005:3000"
+    volumes:
+      - redmine-files:/usr/src/redmine/files
+
+volumes:
+  postgres-data:
+  redmine-files:

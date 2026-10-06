@@ -19,6 +19,7 @@ include = [
     { path = "scripts/**/*.py", format = ["sdist"] },
     { path = "tests/**/*.py", format = ["sdist"] },
     { path = "docs/**/*.md", format = ["sdist"] },
+    { path = "docs/assets/**", format = ["sdist"] },
     { path = "mkdocs.yml", format = ["sdist"] },
     { path = "site/**", format = ["sdist"] },
     { path = "poetry.lock", format = ["sdist"] },

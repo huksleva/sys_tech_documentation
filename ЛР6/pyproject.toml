@@ -1,0 +1,105 @@
+[project]
+name = "alien-invasion"
+version = "0.1.0"
+description = "Учебная игра Alien Invasion с технической документацией и API-сайтом."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pygame>=2.6.1,<3.0",
+]
+
+[project.scripts]
+alien-invasion = "alien_invasion.alien_invasion:main"
+
+[tool.poetry]
+packages = [{ include = "alien_invasion", from = "src" }]
+include = [
+    { path = "src/alien_invasion/images/*.bmp", format = ["sdist", "wheel"] },
+    { path = "alien_invasion.py", format = ["sdist"] },
+    { path = "scripts/**/*.py", format = ["sdist"] },
+    { path = "tests/**/*.py", format = ["sdist"] },
+    { path = "docs/**/*.md", format = ["sdist"] },
+    { path = "mkdocs.yml", format = ["sdist"] },
+    { path = "site/**", format = ["sdist"] },
+    { path = "poetry.lock", format = ["sdist"] },
+    { path = "poetry.toml", format = ["sdist"] },
+]
+
+[tool.poetry.group.dev.dependencies]
+poethepoet = ">=0.37,<1.0"
+pytest = ">=8.3,<9.0"
+ruff = ">=0.11,<1.0"
+
+[tool.poetry.group.docs]
+optional = true
+
+[tool.poetry.group.docs.dependencies]
+mkdocs-material = ">=9.7,<10.0"
+mkdocstrings = { version = ">=0.28,<2.0", extras = ["python"] }
+
+[tool.poe.tasks.run]
+help = "Запустить игру."
+cmd = "python alien_invasion.py"
+
+[tool.poe.tasks.test]
+help = "Проверить правила игры, документацию и поставку."
+cmd = "pytest"
+
+[tool.poe.tasks.docs-check]
+help = "Проверить Python-код и Google-style docstrings."
+cmd = "ruff check alien_invasion.py scripts src tests"
+
+[tool.poe.tasks.compile]
+help = "Проверить синтаксис всех исходных Python-файлов."
+cmd = "python -m compileall -q alien_invasion.py scripts src tests"
+
+[tool.poe.tasks.format]
+help = "Автоматически отформатировать Python-код Ruff-formatter-ом."
+cmd = "ruff format alien_invasion.py scripts src tests"
+
+[tool.poe.tasks.format-check]
+help = "Проверить форматирование без изменения файлов."
+cmd = "ruff format --check alien_invasion.py scripts src tests"
+
+[tool.poe.tasks.docs-site]
+help = "Собрать строгий сайт в site/. Требует poetry install --with docs."
+cmd = "mkdocs build --strict --clean"
+
+[tool.poe.tasks.docs-serve]
+help = "Открыть локальный предварительный просмотр документации."
+cmd = "mkdocs serve --livereload"
+
+[tool.poe.tasks.archive]
+help = "Создать воспроизводимый ZIP с кодом, документацией и сайтом."
+cmd = "python -m scripts.package_tools"
+
+[tool.poe.tasks.check]
+help = "Проверить форматирование, документацию, синтаксис и тесты."
+sequence = ["format-check", "docs-check", "compile", "test"]
+
+[tool.poe.tasks.build]
+help = "Отформатировать, проверить и упаковать проект вместе с сайтом."
+sequence = ["format", "check", "docs-site", "archive", { cmd = "poetry build" }]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "D"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+"alien_invasion.py" = ["E402"]
+"tests/conftest.py" = ["E402"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "."]
+addopts = "-ra"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0"]
+build-backend = "poetry.core.masonry.api"

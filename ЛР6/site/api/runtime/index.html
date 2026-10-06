@@ -1,0 +1,6671 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Русскоязычная техническая документация и API-справочник учебной игры.">
+      
+      
+        <meta name="author" content="Alien Invasion educational project">
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../tooling-and-tests/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Игровой пакет - Alien Invasion — документация кода</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="Alien Invasion — документация кода" class="md-header__button md-logo" aria-label="Alien Invasion — документация кода" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Alien Invasion — документация кода
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Игровой пакет
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Обзор
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../architecture/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Архитектура
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../game-loop/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Игровой цикл
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../code-reference/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Справочник кода
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../testing-and-delivery/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Тестирование и поставка
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../student-guide/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Руководство студента
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  API-справочник
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Alien Invasion — документация кода" class="md-nav__button md-logo" aria-label="Alien Invasion — документация кода" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Alien Invasion — документация кода
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Архитектура
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../game-loop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Игровой цикл
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Справочник кода
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../testing-and-delivery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тестирование и поставка
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Руководство студента
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API-справочник
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API-справочник
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Карта API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Игровой пакет
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Игровой пакет
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#alien_invasion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alien_invasion
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="alien_invasion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AlienInvasion
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AlienInvasion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __init__
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion.run_game" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run_game
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._check_events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _check_events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._check_play_button" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _check_play_button
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._check_keydown_events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _check_keydown_events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._check_keyup_events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _check_keyup_events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._fire_bullet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _fire_bullet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._update_bullets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _update_bullets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._check_bullet_alien_collisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _check_bullet_alien_collisions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._update_aliens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _update_aliens
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._check_aliens_bottom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _check_aliens_bottom
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._ship_hit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _ship_hit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._create_fleet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _create_fleet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._create_alien" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _create_alien
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._check_fleet_edges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _check_fleet_edges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._change_fleet_direction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _change_fleet_direction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._update_screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _update_screen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alien_invasion.__main__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __main__
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="__main__">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.__main__-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.__main__.main" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        main
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alien_invasion
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="alien_invasion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AlienInvasion
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AlienInvasion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __init__
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion.run_game" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run_game
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._check_events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _check_events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._check_play_button" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _check_play_button
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._check_keydown_events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _check_keydown_events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._check_keyup_events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _check_keyup_events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._fire_bullet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _fire_bullet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._update_bullets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _update_bullets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._check_bullet_alien_collisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _check_bullet_alien_collisions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._update_aliens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _update_aliens
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._check_aliens_bottom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _check_aliens_bottom
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._ship_hit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _ship_hit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._create_fleet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _create_fleet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._create_alien" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _create_alien
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._check_fleet_edges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _check_fleet_edges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._change_fleet_direction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _change_fleet_direction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._update_screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _update_screen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.main" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        main
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alien_invasion.settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        settings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.settings-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.settings.Settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Settings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.settings.Settings-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.settings.Settings.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __init__
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.settings.Settings.initialize_dynamic_settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        initialize_dynamic_settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.settings.Settings.increase_speed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        increase_speed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alien_invasion.game_stats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        game_stats
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="game_stats">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.game_stats-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.game_stats.GameStats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GameStats
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GameStats">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.game_stats.GameStats-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.game_stats.GameStats.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __init__
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.game_stats.GameStats.reset_stats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        reset_stats
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alien_invasion.scoreboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scoreboard
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scoreboard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.scoreboard-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.scoreboard.Scoreboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scoreboard
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scoreboard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.scoreboard.Scoreboard-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.scoreboard.Scoreboard.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __init__
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.scoreboard.Scoreboard.prep_score" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        prep_score
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.scoreboard.Scoreboard.prep_high_score" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        prep_high_score
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.scoreboard.Scoreboard.prep_level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        prep_level
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.scoreboard.Scoreboard.prep_ships" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        prep_ships
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.scoreboard.Scoreboard.check_high_score" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        check_high_score
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.scoreboard.Scoreboard.show_score" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        show_score
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alien_invasion.button" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        button
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="button">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.button-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.button.Button" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Button
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Button">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.button.Button-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.button.Button.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __init__
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.button.Button._prep_msg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _prep_msg
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.button.Button.draw_button" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        draw_button
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alien_invasion.ship" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ship
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ship">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.ship-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.ship.Ship" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ship
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ship">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.ship.Ship-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.ship.Ship.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __init__
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.ship.Ship.update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        update
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.ship.Ship.blitme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        blitme
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.ship.Ship.center_ship" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        center_ship
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.ship-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alien_invasion.bullet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bullet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="bullet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.bullet-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.bullet.Bullet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bullet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bullet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.bullet.Bullet-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.bullet.Bullet.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __init__
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.bullet.Bullet.update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        update
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.bullet.Bullet.draw_bullet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        draw_bullet
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alien_invasion.alien" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alien
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="alien">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien.Alien" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alien
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Alien">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien.Alien-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien.Alien.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __init__
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien.Alien.check_edges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        check_edges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien.Alien.update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        update
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alien_invasion.assets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        assets
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="assets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.assets-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.assets.load_image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        load_image
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alien_invasion.images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        images
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tooling-and-tests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Инструменты и тесты
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codebase-coverage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Матрица покрытия
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#alien_invasion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alien_invasion
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="alien_invasion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AlienInvasion
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AlienInvasion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __init__
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion.run_game" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run_game
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._check_events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _check_events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._check_play_button" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _check_play_button
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._check_keydown_events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _check_keydown_events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._check_keyup_events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _check_keyup_events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._fire_bullet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _fire_bullet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._update_bullets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _update_bullets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._check_bullet_alien_collisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _check_bullet_alien_collisions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._update_aliens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _update_aliens
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._check_aliens_bottom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _check_aliens_bottom
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._ship_hit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _ship_hit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._create_fleet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _create_fleet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._create_alien" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _create_alien
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._check_fleet_edges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _check_fleet_edges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._change_fleet_direction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _change_fleet_direction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.AlienInvasion._update_screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _update_screen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alien_invasion.__main__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __main__
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="__main__">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.__main__-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.__main__.main" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        main
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alien_invasion
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="alien_invasion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AlienInvasion
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AlienInvasion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __init__
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion.run_game" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run_game
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._check_events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _check_events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._check_play_button" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _check_play_button
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._check_keydown_events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _check_keydown_events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._check_keyup_events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _check_keyup_events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._fire_bullet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _fire_bullet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._update_bullets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _update_bullets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._check_bullet_alien_collisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _check_bullet_alien_collisions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._update_aliens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _update_aliens
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._check_aliens_bottom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _check_aliens_bottom
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._ship_hit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _ship_hit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._create_fleet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _create_fleet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._create_alien" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _create_alien
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._check_fleet_edges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _check_fleet_edges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._change_fleet_direction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _change_fleet_direction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.AlienInvasion._update_screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _update_screen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien_invasion.main" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        main
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alien_invasion.settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        settings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.settings-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.settings.Settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Settings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.settings.Settings-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.settings.Settings.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __init__
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.settings.Settings.initialize_dynamic_settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        initialize_dynamic_settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.settings.Settings.increase_speed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        increase_speed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alien_invasion.game_stats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        game_stats
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="game_stats">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.game_stats-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.game_stats.GameStats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GameStats
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GameStats">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.game_stats.GameStats-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.game_stats.GameStats.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __init__
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.game_stats.GameStats.reset_stats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        reset_stats
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alien_invasion.scoreboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scoreboard
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scoreboard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.scoreboard-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.scoreboard.Scoreboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scoreboard
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scoreboard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.scoreboard.Scoreboard-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.scoreboard.Scoreboard.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __init__
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.scoreboard.Scoreboard.prep_score" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        prep_score
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.scoreboard.Scoreboard.prep_high_score" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        prep_high_score
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.scoreboard.Scoreboard.prep_level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        prep_level
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.scoreboard.Scoreboard.prep_ships" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        prep_ships
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.scoreboard.Scoreboard.check_high_score" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        check_high_score
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.scoreboard.Scoreboard.show_score" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        show_score
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alien_invasion.button" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        button
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="button">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.button-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.button.Button" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Button
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Button">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.button.Button-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.button.Button.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __init__
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.button.Button._prep_msg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _prep_msg
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.button.Button.draw_button" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        draw_button
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alien_invasion.ship" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ship
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ship">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.ship-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.ship.Ship" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ship
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ship">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.ship.Ship-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.ship.Ship.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __init__
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.ship.Ship.update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        update
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.ship.Ship.blitme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        blitme
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.ship.Ship.center_ship" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        center_ship
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.ship-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alien_invasion.bullet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bullet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="bullet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.bullet-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.bullet.Bullet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bullet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bullet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.bullet.Bullet-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.bullet.Bullet.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __init__
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.bullet.Bullet.update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        update
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.bullet.Bullet.draw_bullet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        draw_bullet
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alien_invasion.alien" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alien
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="alien">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien.Alien" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alien
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Alien">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien.Alien-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien.Alien.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __init__
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien.Alien.check_edges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        check_edges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien.Alien.update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        update
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.alien-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alien_invasion.assets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        assets
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="assets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.assets-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alien_invasion.assets.load_image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        load_image
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alien_invasion.images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        images
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">Игровой пакет</h1>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="alien_invasion" class="doc doc-heading">
+            <code>alien_invasion</code>
+
+
+</h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Экспортирует контроллер <code>AlienInvasion</code> как публичный интерфейс пакета.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+<h3 id="alien_invasion-classes">Classes</h3>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h4 id="alien_invasion.AlienInvasion" class="doc doc-heading">
+            <code>AlienInvasion</code>
+
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>Управляет учебной игрой и жизненным циклом её объектов.</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.AlienInvasion.settings">settings</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Владелец правил и динамической сложности.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.AlienInvasion.screen">screen</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Поверхность окна Pygame.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.AlienInvasion.stats">stats</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Статистика сессии и рекорд процесса.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.AlienInvasion.ship">ship</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Текущий корабль игрока.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.AlienInvasion.bullets">bullets</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Группа не более трёх активных снарядов.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.AlienInvasion.aliens">aliens</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Группа целей текущего флота.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.AlienInvasion.play_button">play_button</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Кнопка старта и повторного запуска.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.AlienInvasion.sb">sb</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>HUD, отображающий статистику.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.AlienInvasion.running">running</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Продолжает ли работать приложение независимо от сессии.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.AlienInvasion.clock">clock</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Ограничитель частоты кадров.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+<h5 id="alien_invasion.AlienInvasion-functions">Methods:</h5>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.AlienInvasion.__init__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Инициализирует Pygame, неактивную сессию, HUD и стартовый флот.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.AlienInvasion.run_game" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">run_game</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Выполняет кадры до выхода и освобождает Pygame даже при исключении.</p>
+<p>Кадр: ввод, корабль, пули и коллизии, флот, отрисовка, ограничение FPS.
+Механика обновляется только при активной сессии.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.AlienInvasion._check_events" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_check_events</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Обрабатывает очередь выхода, мыши и клавиатуры.</p>
+<p>Только левая кнопка мыши запускает Play. После запроса выхода
+оставшиеся события очереди не запускают новую сессию.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.AlienInvasion._check_play_button" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_check_play_button</span><span class="p">(</span><span class="n">mouse_pos</span><span class="p">)</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Начинает сессию только по клику внутри Play при неактивной игре.</p>
+<p>Сбрасывает статистику, сложности, пули и флот, центрирует корабль,
+обновляет HUD и скрывает курсор. Рекорд текущего процесса сохраняется.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>mouse_pos</code></b>
+          –
+          <div class="doc-md-description">
+            <p>Пара координат клика в пикселях экрана.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.AlienInvasion._check_keydown_events" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_check_keydown_events</span><span class="p">(</span><span class="n">event</span><span class="p">)</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Включает движение, стреляет в активной игре или завершает по Q.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>event</code></b>
+          –
+          <div class="doc-md-description">
+            <p>Событие KEYDOWN Pygame с атрибутом key.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.AlienInvasion._check_keyup_events" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_check_keyup_events</span><span class="p">(</span><span class="n">event</span><span class="p">)</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Снимает соответствующий флаг движения при отпускании стрелки.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>event</code></b>
+          –
+          <div class="doc-md-description">
+            <p>Событие KEYUP Pygame с атрибутом key.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.AlienInvasion._fire_bullet" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_fire_bullet</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Добавляет пулю в активной игре, если лимит ещё не исчерпан.</p>
+<p>Лимит проверяется до создания спрайта; после удаления вылетевшей
+или попавшей пули место освобождается.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.AlienInvasion._update_bullets" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_update_bullets</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Двигает пули, удаляет вышедшие целиком вверх и проверяет попадания.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.AlienInvasion._check_bullet_alien_collisions" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_check_bullet_alien_collisions</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Удаляет пересекающиеся пули и цели, начисляет очки и меняет уровень.</p>
+<p>Каждая удалённая цель приносит текущую цену, включая несколько целей
+одной пули. После обновления счёта и рекорда пустой флот вызывает
+очистку пуль, рост сложности и уровня, подготовку HUD и новый флот.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.AlienInvasion._update_aliens" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_update_aliens</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Разворачивает и двигает флот, затем проверяет корабль и низ экрана.</p>
+<p>После столкновения с кораблём проверка нижней границы пропускается,
+чтобы одно обновление не вызвало две потери запаса.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.AlienInvasion._check_aliens_bottom" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_check_aliens_bottom</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Вызывает одну потерю корабля при достижении любой целью низа экрана.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.AlienInvasion._ship_hit" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_ship_hit</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Расходует замену либо завершает сессию, если запас уже был нулевым.</p>
+<p>При положительном запасе уменьшает его, очищает группы, создаёт флот,
+центрирует корабль, обновляет значки HUD и ждёт 0,5 секунды. Значение 0
+после уменьшения оставляет сессию активной: Game Over наступает при
+следующем попадании. Неактивная сессия не меняется повторным вызовом.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.AlienInvasion._create_fleet" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_create_fleet</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Заполняет группу сеткой целей с интервалом в одну ширину и высоту.</p>
+<p>Слева/справа оставляет по ширине цели, сверху одну высоту, снизу
+резервирует высоту корабля и три высоты цели. Вызывается после
+очистки группы; при слишком маленьком экране сетка остаётся пустой.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.AlienInvasion._create_alien" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_create_alien</span><span class="p">(</span><span class="n">alien_number</span><span class="p">,</span> <span class="n">row_number</span><span class="p">)</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Добавляет цель в заданную ячейку сетки флота.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>alien_number</code></b>
+          –
+          <div class="doc-md-description">
+            <p>Индекс столбца, начиная с 0.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>row_number</code></b>
+          –
+          <div class="doc-md-description">
+            <p>Индекс строки, начиная с 0.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.AlienInvasion._check_fleet_edges" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_check_fleet_edges</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Разворачивает весь флот один раз, если хотя бы одна цель у края.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.AlienInvasion._change_fleet_direction" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_change_fleet_direction</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Опускает все цели на общий шаг и меняет знак направления флота.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.AlienInvasion._update_screen" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_update_screen</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Рисует фон, спрайты, HUD и Play при неактивной сессии, затем кадр.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="alien_invasion.__main__" class="doc doc-heading">
+            <code>__main__</code>
+
+
+</h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Предоставляет запуск установленного пакета через <code>python -m alien_invasion</code>.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+<h3 id="alien_invasion.__main__-functions">Functions:</h3>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="alien_invasion.__main__.main" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">main</span><span class="p">()</span></code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Запускает общий игровой цикл через точку входа контроллера.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="alien_invasion.alien_invasion" class="doc doc-heading">
+            <code>alien_invasion</code>
+
+
+</h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Координирует ввод, игровой кадр, столкновения и переходы сессии.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+<h3 id="alien_invasion.alien_invasion-classes">Classes</h3>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h4 id="alien_invasion.alien_invasion.AlienInvasion" class="doc doc-heading">
+            <code>AlienInvasion</code>
+
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>Управляет учебной игрой и жизненным циклом её объектов.</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.alien_invasion.AlienInvasion.settings">settings</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Владелец правил и динамической сложности.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.alien_invasion.AlienInvasion.screen">screen</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Поверхность окна Pygame.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.alien_invasion.AlienInvasion.stats">stats</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Статистика сессии и рекорд процесса.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.alien_invasion.AlienInvasion.ship">ship</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Текущий корабль игрока.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.alien_invasion.AlienInvasion.bullets">bullets</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Группа не более трёх активных снарядов.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.alien_invasion.AlienInvasion.aliens">aliens</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Группа целей текущего флота.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.alien_invasion.AlienInvasion.play_button">play_button</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Кнопка старта и повторного запуска.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.alien_invasion.AlienInvasion.sb">sb</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>HUD, отображающий статистику.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.alien_invasion.AlienInvasion.running">running</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Продолжает ли работать приложение независимо от сессии.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.alien_invasion.AlienInvasion.clock">clock</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Ограничитель частоты кадров.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+<h5 id="alien_invasion.alien_invasion.AlienInvasion-functions">Methods:</h5>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.alien_invasion.AlienInvasion.__init__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Инициализирует Pygame, неактивную сессию, HUD и стартовый флот.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.alien_invasion.AlienInvasion.run_game" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">run_game</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Выполняет кадры до выхода и освобождает Pygame даже при исключении.</p>
+<p>Кадр: ввод, корабль, пули и коллизии, флот, отрисовка, ограничение FPS.
+Механика обновляется только при активной сессии.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.alien_invasion.AlienInvasion._check_events" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_check_events</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Обрабатывает очередь выхода, мыши и клавиатуры.</p>
+<p>Только левая кнопка мыши запускает Play. После запроса выхода
+оставшиеся события очереди не запускают новую сессию.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.alien_invasion.AlienInvasion._check_play_button" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_check_play_button</span><span class="p">(</span><span class="n">mouse_pos</span><span class="p">)</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Начинает сессию только по клику внутри Play при неактивной игре.</p>
+<p>Сбрасывает статистику, сложности, пули и флот, центрирует корабль,
+обновляет HUD и скрывает курсор. Рекорд текущего процесса сохраняется.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>mouse_pos</code></b>
+          –
+          <div class="doc-md-description">
+            <p>Пара координат клика в пикселях экрана.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.alien_invasion.AlienInvasion._check_keydown_events" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_check_keydown_events</span><span class="p">(</span><span class="n">event</span><span class="p">)</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Включает движение, стреляет в активной игре или завершает по Q.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>event</code></b>
+          –
+          <div class="doc-md-description">
+            <p>Событие KEYDOWN Pygame с атрибутом key.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.alien_invasion.AlienInvasion._check_keyup_events" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_check_keyup_events</span><span class="p">(</span><span class="n">event</span><span class="p">)</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Снимает соответствующий флаг движения при отпускании стрелки.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>event</code></b>
+          –
+          <div class="doc-md-description">
+            <p>Событие KEYUP Pygame с атрибутом key.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.alien_invasion.AlienInvasion._fire_bullet" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_fire_bullet</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Добавляет пулю в активной игре, если лимит ещё не исчерпан.</p>
+<p>Лимит проверяется до создания спрайта; после удаления вылетевшей
+или попавшей пули место освобождается.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.alien_invasion.AlienInvasion._update_bullets" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_update_bullets</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Двигает пули, удаляет вышедшие целиком вверх и проверяет попадания.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.alien_invasion.AlienInvasion._check_bullet_alien_collisions" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_check_bullet_alien_collisions</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Удаляет пересекающиеся пули и цели, начисляет очки и меняет уровень.</p>
+<p>Каждая удалённая цель приносит текущую цену, включая несколько целей
+одной пули. После обновления счёта и рекорда пустой флот вызывает
+очистку пуль, рост сложности и уровня, подготовку HUD и новый флот.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.alien_invasion.AlienInvasion._update_aliens" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_update_aliens</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Разворачивает и двигает флот, затем проверяет корабль и низ экрана.</p>
+<p>После столкновения с кораблём проверка нижней границы пропускается,
+чтобы одно обновление не вызвало две потери запаса.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.alien_invasion.AlienInvasion._check_aliens_bottom" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_check_aliens_bottom</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Вызывает одну потерю корабля при достижении любой целью низа экрана.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.alien_invasion.AlienInvasion._ship_hit" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_ship_hit</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Расходует замену либо завершает сессию, если запас уже был нулевым.</p>
+<p>При положительном запасе уменьшает его, очищает группы, создаёт флот,
+центрирует корабль, обновляет значки HUD и ждёт 0,5 секунды. Значение 0
+после уменьшения оставляет сессию активной: Game Over наступает при
+следующем попадании. Неактивная сессия не меняется повторным вызовом.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.alien_invasion.AlienInvasion._create_fleet" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_create_fleet</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Заполняет группу сеткой целей с интервалом в одну ширину и высоту.</p>
+<p>Слева/справа оставляет по ширине цели, сверху одну высоту, снизу
+резервирует высоту корабля и три высоты цели. Вызывается после
+очистки группы; при слишком маленьком экране сетка остаётся пустой.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.alien_invasion.AlienInvasion._create_alien" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_create_alien</span><span class="p">(</span><span class="n">alien_number</span><span class="p">,</span> <span class="n">row_number</span><span class="p">)</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Добавляет цель в заданную ячейку сетки флота.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>alien_number</code></b>
+          –
+          <div class="doc-md-description">
+            <p>Индекс столбца, начиная с 0.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>row_number</code></b>
+          –
+          <div class="doc-md-description">
+            <p>Индекс строки, начиная с 0.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.alien_invasion.AlienInvasion._check_fleet_edges" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_check_fleet_edges</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Разворачивает весь флот один раз, если хотя бы одна цель у края.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.alien_invasion.AlienInvasion._change_fleet_direction" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_change_fleet_direction</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Опускает все цели на общий шаг и меняет знак направления флота.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.alien_invasion.AlienInvasion._update_screen" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_update_screen</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Рисует фон, спрайты, HUD и Play при неактивной сессии, затем кадр.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+<h3 id="alien_invasion.alien_invasion-functions">Functions:</h3>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="alien_invasion.alien_invasion.main" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">main</span><span class="p">()</span></code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Создаёт контроллер и запускает цикл до Q либо закрытия окна.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="alien_invasion.settings" class="doc doc-heading">
+            <code>settings</code>
+
+
+</h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Определяет постоянные правила и динамическую сложность игры.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+<h3 id="alien_invasion.settings-classes">Classes</h3>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h4 id="alien_invasion.settings.Settings" class="doc doc-heading">
+            <code>Settings</code>
+
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>Хранит правила экрана, спрайтов и роста сложности.</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.settings.Settings.screen_width">screen_width</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Ширина окна, 640 пикселей.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.settings.Settings.screen_height">screen_height</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Высота окна, 480 пикселей.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.settings.Settings.bg_color">bg_color</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Цвет фона RGB.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.settings.Settings.ship_limit">ship_limit</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Начальный запас замен корабля, 3; текущий корабль отдельно.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.settings.Settings.bullets_allowed">bullets_allowed</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Максимум одновременно активных пуль, 3.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.settings.Settings.bullet_width">bullet_width</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Ширина прямоугольной пули в пикселях.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.settings.Settings.bullet_height">bullet_height</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Высота прямоугольной пули в пикселях.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.settings.Settings.bullet_color">bullet_color</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Цвет пули RGB.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.settings.Settings.fleet_drop_speed">fleet_drop_speed</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Вертикальный шаг флота при развороте, 10 пикселей.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.settings.Settings.speedup_scale">speedup_scale</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Множитель скоростей после уровня, 1,1.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.settings.Settings.score_scale">score_scale</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Множитель стоимости пришельца после уровня, 1,5.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.settings.Settings.fps">fps</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Верхний предел частоты кадров, 60.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.settings.Settings.ship_speed">ship_speed</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Скорость корабля в пикселях за кадр; стартовое значение 1,5.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.settings.Settings.bullet_speed">bullet_speed</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Скорость пули вверх; стартовое значение 1,0.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.settings.Settings.alien_speed">alien_speed</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Горизонтальная скорость пришельца; стартовое значение 1,0.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.settings.Settings.fleet_direction">fleet_direction</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>1 для движения вправо, -1 для движения влево.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.settings.Settings.alien_points">alien_points</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Очки за цель; стартовое значение 50.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+<h5 id="alien_invasion.settings.Settings-functions">Methods:</h5>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.settings.Settings.__init__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Создаёт постоянные параметры и начальную динамическую сложность.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.settings.Settings.initialize_dynamic_settings" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">initialize_dynamic_settings</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Сбрасывает скорости, направление и цену цели при начале сессии.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.settings.Settings.increase_speed" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">increase_speed</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Умножает скорости на 1,1, а цену цели на 1,5 с округлением вниз.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="alien_invasion.game_stats" class="doc doc-heading">
+            <code>game_stats</code>
+
+
+</h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Отделяет изменяемую статистику сессии от игровых настроек.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+<h3 id="alien_invasion.game_stats-classes">Classes</h3>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h4 id="alien_invasion.game_stats.GameStats" class="doc doc-heading">
+            <code>GameStats</code>
+
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>Хранит активность, запас кораблей, счёт, рекорд и уровень.</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.game_stats.GameStats.settings">settings</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Настройки, задающие исходный запас замен.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.game_stats.GameStats.high_score">high_score</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Лучший счёт за время жизни процесса; не сохраняется на диск.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.game_stats.GameStats.game_active">game_active</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Разрешены ли обновление игровой механики и ввод.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.game_stats.GameStats.ships_left">ships_left</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Число доступных замен после попадания; 0 допускает игру.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.game_stats.GameStats.score">score</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Сумма очков текущей сессии.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.game_stats.GameStats.level">level</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Уровень текущей сессии, начиная с 1.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+<h5 id="alien_invasion.game_stats.GameStats-functions">Methods:</h5>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.game_stats.GameStats.__init__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">ai_game</span><span class="p">)</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Создаёт неактивную сессию с нулевым рекордом.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>ai_game</code></b>
+          –
+          <div class="doc-md-description">
+            <p>Контроллер, предоставляющий настройки правил.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.game_stats.GameStats.reset_stats" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">reset_stats</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Сбрасывает запас, счёт и уровень, сохраняя рекорд и активность.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="alien_invasion.scoreboard" class="doc doc-heading">
+            <code>scoreboard</code>
+
+
+</h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Подготавливает и рисует HUD из статистики текущей сессии.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+<h3 id="alien_invasion.scoreboard-classes">Classes</h3>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h4 id="alien_invasion.scoreboard.Scoreboard" class="doc doc-heading">
+            <code>Scoreboard</code>
+
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>Отображает счёт, рекорд, уровень и запас замен корабля.</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.scoreboard.Scoreboard.ai_game">ai_game</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Контроллер для создания значков кораблей.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.scoreboard.Scoreboard.screen">screen</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Поверхность окна.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.scoreboard.Scoreboard.screen_rect">screen_rect</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Границы размещения HUD.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.scoreboard.Scoreboard.settings">settings</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Настройки фонового цвета.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.scoreboard.Scoreboard.stats">stats</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Статистика, из которой подготавливается HUD.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.scoreboard.Scoreboard.text_color">text_color</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Тёмно-серый цвет текста RGB.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.scoreboard.Scoreboard.font">font</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Системный шрифт размером 32.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.scoreboard.Scoreboard.score_image">score_image</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Подготовленная поверхность текущего счёта.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.scoreboard.Scoreboard.score_rect">score_rect</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Положение счёта справа вверху.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.scoreboard.Scoreboard.high_score_image">high_score_image</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Подготовленная поверхность рекорда.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.scoreboard.Scoreboard.high_score_rect">high_score_rect</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Положение рекорда по центру вверху.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.scoreboard.Scoreboard.level_image">level_image</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Подготовленная поверхность номера уровня.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.scoreboard.Scoreboard.level_rect">level_rect</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Положение уровня под текущим счётом.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.scoreboard.Scoreboard.ships">ships</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Группа значков запаса замен слева вверху.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+<h5 id="alien_invasion.scoreboard.Scoreboard-functions">Methods:</h5>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.scoreboard.Scoreboard.__init__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">ai_game</span><span class="p">)</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Подготавливает все элементы HUD из исходной статистики.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>ai_game</code></b>
+          –
+          <div class="doc-md-description">
+            <p>Контроллер с экраном, настройками и статистикой.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.scoreboard.Scoreboard.prep_score" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">prep_score</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Форматирует точный целый счёт с разделителями тысяч справа вверху.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.scoreboard.Scoreboard.prep_high_score" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">prep_high_score</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Подготавливает изображение рекорда по центру верхней границы.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.scoreboard.Scoreboard.prep_level" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">prep_level</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Подготавливает номер уровня под изображением текущего счёта.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.scoreboard.Scoreboard.prep_ships" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">prep_ships</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Создаёт по значку на каждую доступную замену корабля.</p>
+<p>При нулевом запасе группа пуста, хотя текущий корабль ещё может играть.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.scoreboard.Scoreboard.check_high_score" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">check_high_score</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Повышает рекорд и обновляет его изображение, если счёт больше.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.scoreboard.Scoreboard.show_score" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">show_score</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Рисует ранее подготовленные поверхности и значки без изменения счёта.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="alien_invasion.button" class="doc doc-heading">
+            <code>button</code>
+
+
+</h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Создаёт отображение кнопки Play; запуск сессии решает контроллер.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+<h3 id="alien_invasion.button-classes">Classes</h3>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h4 id="alien_invasion.button.Button" class="doc doc-heading">
+            <code>Button</code>
+
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>Хранит геометрию и текст кнопки начала игры.</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.button.Button.screen">screen</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Поверхность окна.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.button.Button.screen_rect">screen_rect</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Границы окна для центрирования.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.button.Button.width">width</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Ширина кнопки, 200 пикселей.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.button.Button.height">height</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Высота кнопки, 50 пикселей.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.button.Button.button_color">button_color</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Зелёный фон кнопки RGB.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.button.Button.text_color">text_color</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Белый цвет текста RGB.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.button.Button.font">font</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Системный шрифт Pygame размером 48.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.button.Button.rect">rect</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Область клика и отрисовки кнопки.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.button.Button.msg_image">msg_image</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Подготовленная поверхность надписи.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.button.Button.msg_image_rect">msg_image_rect</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Центрированный прямоугольник надписи.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+<h5 id="alien_invasion.button.Button-functions">Methods:</h5>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.button.Button.__init__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">ai_game</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Создаёт кнопку в центре экрана и подготавливает текст.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>ai_game</code></b>
+          –
+          <div class="doc-md-description">
+            <p>Контроллер с поверхностью окна.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>msg</code></b>
+          –
+          <div class="doc-md-description">
+            <p>Надпись на кнопке, обычно Play.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.button.Button._prep_msg" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">_prep_msg</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Создаёт сглаженный текст и центрирует его в кнопке.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>msg</code></b>
+          –
+          <div class="doc-md-description">
+            <p>Строка, отображаемая на кнопке.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.button.Button.draw_button" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">draw_button</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Рисует фон кнопки и ранее подготовленную надпись.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="alien_invasion.ship" class="doc doc-heading">
+            <code>ship</code>
+
+
+</h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Определяет корабль игрока и ограниченное горизонтальное движение.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+<h3 id="alien_invasion.ship-classes">Classes</h3>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h4 id="alien_invasion.ship.Ship" class="doc doc-heading">
+            <code>Ship</code>
+
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="pygame.sprite.Sprite">Sprite</span></code></p>
+
+
+
+        <p>Представляет корабль, его положение и флаги удержания стрелок.</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.ship.Ship.screen">screen</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Поверхность окна, на которой рисуется корабль.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.ship.Ship.screen_rect">screen_rect</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Прямоугольник границ экрана.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.ship.Ship.settings">settings</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Настройки скорости перемещения.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.ship.Ship.image">image</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>BMP корабля из package data.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.ship.Ship.rect">rect</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Прямоугольник отображения и столкновений.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.ship.Ship.x">x</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Вещественная горизонтальная координата левого края.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.ship.Ship.moving_right">moving_right</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Удерживается ли стрелка вправо.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.ship.Ship.moving_left">moving_left</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Удерживается ли стрелка влево.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+<h5 id="alien_invasion.ship.Ship-functions">Methods:</h5>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.ship.Ship.__init__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">ai_game</span><span class="p">)</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Создаёт неподвижный корабль у нижнего центра экрана.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>ai_game</code></b>
+          –
+          <div class="doc-md-description">
+            <p>Контроллер с экраном и настройками скорости.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.ship.Ship.update" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">update</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Двигает корабль и ограничивает координату даже при дробной скорости.</p>
+<p>Одновременное удержание обеих стрелок даёт нулевое смещение.
+Float-координата ограничивается до синхронизации с целым <code>rect.x</code>.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.ship.Ship.blitme" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">blitme</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Рисует корабль в текущем прямоугольнике без обновления экрана.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.ship.Ship.center_ship" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">center_ship</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Центрирует корабль у нижней границы и снимает оба флага движения.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+<h3 id="alien_invasion.ship-functions">Functions:</h3>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="alien_invasion.bullet" class="doc doc-heading">
+            <code>bullet</code>
+
+
+</h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Определяет снаряд с дробным вертикальным перемещением вверх.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+<h3 id="alien_invasion.bullet-classes">Classes</h3>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h4 id="alien_invasion.bullet.Bullet" class="doc doc-heading">
+            <code>Bullet</code>
+
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="pygame.sprite.Sprite">Sprite</span></code></p>
+
+
+
+        <p>Представляет один прямоугольный снаряд.</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.bullet.Bullet.screen">screen</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Поверхность окна для отрисовки.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.bullet.Bullet.settings">settings</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Настройки размера и скорости пули.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.bullet.Bullet.color">color</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Цвет прямоугольника RGB.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.bullet.Bullet.rect">rect</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Прямоугольник отрисовки и коллизий.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.bullet.Bullet.y">y</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Вещественная вертикальная координата верхнего края.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+<h5 id="alien_invasion.bullet.Bullet-functions">Methods:</h5>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.bullet.Bullet.__init__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">ai_game</span><span class="p">)</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Создаёт снаряд у верхнего центра корабля.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>ai_game</code></b>
+          –
+          <div class="doc-md-description">
+            <p>Контроллер, предоставляющий экран, настройки и корабль.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.bullet.Bullet.update" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">update</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Сдвигает снаряд вверх и синхронизирует <code>rect.y</code> с float-координатой.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.bullet.Bullet.draw_bullet" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">draw_bullet</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Рисует прямоугольник пули на экране без изменения её состояния.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="alien_invasion.alien" class="doc doc-heading">
+            <code>alien</code>
+
+
+</h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Определяет пришельца, движущегося с общим направлением флота.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+<h3 id="alien_invasion.alien-classes">Classes</h3>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h4 id="alien_invasion.alien.Alien" class="doc doc-heading">
+            <code>Alien</code>
+
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="pygame.sprite.Sprite">Sprite</span></code></p>
+
+
+
+        <p>Представляет одну цель и её горизонтальную координату.</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.alien.Alien.screen">screen</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Поверхность игрового окна.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.alien.Alien.settings">settings</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Общие скорость и направление флота.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.alien.Alien.image">image</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>BMP пришельца из ресурсов пакета.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.alien.Alien.rect">rect</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Прямоугольник отрисовки и столкновений.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="alien_invasion.alien.Alien.x">x</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Вещественная координата левого края.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+<h5 id="alien_invasion.alien.Alien-functions">Methods:</h5>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.alien.Alien.__init__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">ai_game</span><span class="p">)</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Загружает изображение и создаёт цель у начала координат.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>ai_game</code></b>
+          –
+          <div class="doc-md-description">
+            <p>Контроллер, предоставляющий экран и правила флота.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.alien.Alien.check_edges" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">check_edges</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Сообщает, касается ли цель любой горизонтальной границы окна.</p>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          –
+          <div class="doc-md-description">
+            <p>True при <code>rect.left &lt;= 0</code> либо <code>rect.right &gt;= screen.right</code>.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="alien_invasion.alien.Alien.update" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">update</span><span class="p">()</span></code>
+
+</h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Перемещает цель по общей скорости и направлению и обновляет <code>rect.x</code>.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+<h3 id="alien_invasion.alien-functions">Functions:</h3>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="alien_invasion.assets" class="doc doc-heading">
+            <code>assets</code>
+
+
+</h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Загружает BMP из package data без зависимости от текущего каталога.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+<h3 id="alien_invasion.assets-functions">Functions:</h3>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="alien_invasion.assets.load_image" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">load_image</span><span class="p">(</span><span class="n">name</span><span class="p">)</span></code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Загружает изображение из ресурсов пакета <code>alien_invasion.images</code>.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>name</code></b>
+              (<code><span title="str">str</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>Имя BMP внутри подпакета ресурсов.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="pygame.Surface">Surface</span></code>
+          –
+          <div class="doc-md-description">
+            <p>Поверхность Pygame с загруженным изображением.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="FileNotFoundError">FileNotFoundError</span></code>
+            –
+          <div class="doc-md-description">
+            <p>Если именованный ресурс отсутствует в пакете.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+              <code><span title="pygame.error">error</span></code>
+            –
+          <div class="doc-md-description">
+            <p>Если существующий файл не распознаётся как изображение.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="alien_invasion.images" class="doc doc-heading">
+            <code>images</code>
+
+
+</h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Содержит BMP корабля и пришельца, доступные через <code>importlib.resources</code>.</p>
+
+
+
+
+
+
+
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Нижний колонтитул" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Назад: Карта API">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Назад
+              </span>
+              <div class="md-ellipsis">
+                Карта API
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../tooling-and-tests/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Инструменты и тесты">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Вперед
+              </span>
+              <div class="md-ellipsis">
+                Инструменты и тесты
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.footer", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

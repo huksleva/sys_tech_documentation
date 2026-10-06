@@ -1,4 +1,4 @@
-"""Headless-настройка Pygame для acceptance-тестов."""
+"""Настраивает SDL dummy до импорта Pygame и изолирует игровые экземпляры."""
 
 import os
 
@@ -13,7 +13,13 @@ from alien_invasion.alien_invasion import AlienInvasion
 
 @pytest.fixture
 def game():
-    """Создаёт отдельный экземпляр игры."""
+    """Создаёт новый контроллер и освобождает Pygame после сценария.
+
+    Yields:
+        Контроллер в неактивном состоянии с изолированной статистикой.
+    """
     instance = AlienInvasion()
-    yield instance
-    pygame.quit()
+    try:
+        yield instance
+    finally:
+        pygame.quit()

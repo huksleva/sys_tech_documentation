@@ -1,0 +1,71 @@
+site_name: Alien Invasion — документация кода
+site_description: Русскоязычная техническая документация и API-справочник учебной игры.
+site_author: Alien Invasion educational project
+docs_dir: docs
+site_dir: site
+use_directory_urls: true
+theme:
+  name: material
+  language: ru
+  font: false
+  palette:
+    - scheme: default
+      primary: blue grey
+      accent: indigo
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.footer
+    - content.code.copy
+    - content.code.annotate
+plugins:
+  - search:
+      lang: [ru, en]
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          paths: [src, .]
+          options:
+            docstring_style: google
+            docstring_section_style: list
+            docstring_options:
+              warn_missing_types: false
+            show_root_heading: true
+            show_root_full_path: false
+            show_object_full_path: false
+            show_category_heading: true
+            members_order: source
+            show_source: false
+            filters: []
+            show_if_no_docstring: false
+            show_submodules: false
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      base_path: [.]
+      check_paths: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+nav:
+  - Обзор: README.md
+  - Архитектура: architecture.md
+  - Игровой цикл: game-loop.md
+  - Справочник кода: code-reference.md
+  - Тестирование и поставка: testing-and-delivery.md
+  - Руководство студента: student-guide.md
+  - API-справочник:
+      - Карта API: api/index.md
+      - Игровой пакет: api/runtime.md
+      - Инструменты и тесты: api/tooling-and-tests.md
+      - Матрица покрытия: api/codebase-coverage.md

@@ -1,0 +1,5 @@
+# Generated documentation keeps MkDocs formatting; review Markdown and Python sources.
+ЛР6/site/** linguist-generated=true whitespace=-blank-at-eol,-blank-at-eof
+ЛР6/dist/*.zip binary
+ЛР6/dist/*.whl binary
+ЛР6/dist/*.gz binary

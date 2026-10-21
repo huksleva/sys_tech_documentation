@@ -1,0 +1,36 @@
+﻿ID,Тип,Заголовок,Теги
+20261021000001,GDD,GDD - Короткая партия строится вокруг выживания и счёта,#GDD #concept #mechanics
+20261021000002,GDD,GDD - Игровой цикл повторяет выбор позиции и выстрел,#GDD #loop #mechanics
+20261021000003,GDD,GDD - Горизонтальное движение ограничено игровым полем,#GDD #input #mechanics
+20261021000004,GDD,GDD - Ограниченный залп делает прицеливание значимым,#GDD #combat #mechanics
+20261021000005,GDD,GDD - Разворот флота приближает угрозу,#GDD #levels #mechanics
+20261021000006,GDD,GDD - Пустой флот служит границей уровня,#GDD #levels #progression
+20261021000007,GDD,GDD - Рекорд процесса сохраняет смысл повторной партии,#GDD #progression #score
+20261021000008,GDD,GDD - HUD показывает состояние без выхода из партии,#GDD #feedback #ui
+20261021000009,SRS,SRS - Четвёртая активная пуля не создаётся,#SRS #mechanics #requirements
+20261021000010,SRS,SRS - Неактивная партия запрещает движение и выстрел,#SRS #requirements #state
+20261021000011,SRS,SRS - Повторный Play сбрасывает только данные партии,#SRS #requirements #state
+20261021000012,SRS,SRS - Базовая игра работает без сети,#SRS #offline #requirements
+20261021000013,SRS,SRS - Состояние нельзя передавать только цветом,#SRS #accessibility #requirements #ui
+20261021000014,SRS,SRS - Ограничение FPS не доказывает производительность,#SRS #performance #requirements
+20261021000015,SDD,SDD - Контроллер координирует объекты одного кадра,#SDD #architecture #loop
+20261021000016,SDD,SDD - Флаги удержания отделяют события от движения,#SDD #architecture #input
+20261021000017,SDD,SDD - Дробная координата сохраняет малое перемещение,#SDD #architecture #movement
+20261021000018,SDD,SDD - Групповая коллизия начисляет очки за все цели,#SDD #architecture #combat
+20261021000019,SDD,SDD - Ресурсы ищутся относительно пакета,#SDD #architecture #assets
+20261021000020,SDD,SDD - Порядок операций кадра влияет на результат,#SDD #architecture #loop #performance
+20261021000021,DEV,DEV - Проверка правила начинается с наблюдаемого результата,#DEV #requirements #testing
+20261021000022,DEV,DEV - Расхождение кода и проекта требует явного решения,#DEV #requirements #traceability
+20261021000023,DEV,DEV - Поставка должна фиксировать зависимости и ресурсы,#DEV #packaging #reproducibility
+20261021000024,DEV,DEV - Небольшой вертикальный срез проверяет идею быстрее,#DEV #feedback #planning
+20261021000025,MKT,MKT - Учебную аркаду стоит показывать коротким прохождением,#MKT #audience #demo
+20261021000026,MKT,MKT - Открытая учебная поставка поддерживает разбор механик,#MKT #distribution #learning
+20261021000027,MKT,MKT - Отзыв полезнее привязывать к наблюдаемому затруднению,#MKT #feedback #research
+20261021000028,SUP,SUP - Обращение об ошибке должно воспроизводиться,#SUP #bug #support
+20261021000029,SUP,SUP - Руководство объясняет первую минуту игры,#SUP #onboarding #support #ui
+20261021000030,SUP,SUP - Патч должен сохранять проверяемые правила,#SUP #release #support #testing
+20261021000031,IDEA,IDEA - Индикатор залпа объяснит недоступный выстрел,#IDEA #idea #mechanics #ui
+20261021000032,IDEA,IDEA - Предупреждение о низком флоте даст время отреагировать,#IDEA #idea #levels #ui
+20261021000033,IDEA,IDEA - Таймер восстановления сохранит обработку событий,#IDEA #idea #performance #state
+20261021000034,IDEA,IDEA - Временной шаг отделит движение от частоты кадров,#IDEA #idea #movement #performance
+20261021000035,IDEA,IDEA - Локальное сохранение продлит жизнь рекорда,#IDEA #idea #offline #score

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000"><rect width="100%" height="100%" fill="white"/>
+<text x="800" y="65" dominant-baseline="central" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" font-weight="700" fill="#203247">ГОРИЗОНТАЛЬНАЯ СВЯЗЬ ЧЕРЕЗ #ui</text>
+<text x="800" y="120" dominant-baseline="central" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="400" fill="#203247">5 карточек из 4 типов</text>
+<line x1="540" y1="325" x2="800" y2="510" stroke="#c8d3df" stroke-width="5"/>
+<line x1="1040" y1="325" x2="800" y2="510" stroke="#c8d3df" stroke-width="5"/>
+<line x1="540" y1="580" x2="800" y2="510" stroke="#c8d3df" stroke-width="5"/>
+<line x1="1040" y1="580" x2="800" y2="510" stroke="#c8d3df" stroke-width="5"/>
+<line x1="540" y1="835" x2="800" y2="510" stroke="#c8d3df" stroke-width="5"/>
+<rect x="40" y="235" width="520" height="180" rx="18" fill="#f4f7fa" stroke="#2274a5" stroke-width="4"/>
+<text x="65" y="270" dominant-baseline="central" text-anchor="start" font-family="Arial, sans-serif" font-size="29" font-weight="700" fill="#2274a5">GDD / 08</text>
+<text x="65" y="315" dominant-baseline="central" text-anchor="start" font-family="Arial, sans-serif" font-size="26" font-weight="400" fill="#203247">HUD показывает состояние без</text>
+<text x="65" y="350" dominant-baseline="central" text-anchor="start" font-family="Arial, sans-serif" font-size="26" font-weight="400" fill="#203247">выхода из партии</text>
+<rect x="1040" y="235" width="520" height="180" rx="18" fill="#f4f7fa" stroke="#c76b19" stroke-width="4"/>
+<text x="1065" y="270" dominant-baseline="central" text-anchor="start" font-family="Arial, sans-serif" font-size="29" font-weight="700" fill="#c76b19">SRS / 13</text>
+<text x="1065" y="315" dominant-baseline="central" text-anchor="start" font-family="Arial, sans-serif" font-size="26" font-weight="400" fill="#203247">Состояние нельзя передавать</text>
+<text x="1065" y="350" dominant-baseline="central" text-anchor="start" font-family="Arial, sans-serif" font-size="26" font-weight="400" fill="#203247">только цветом</text>
+<rect x="40" y="490" width="520" height="180" rx="18" fill="#f4f7fa" stroke="#566576" stroke-width="4"/>
+<text x="65" y="525" dominant-baseline="central" text-anchor="start" font-family="Arial, sans-serif" font-size="29" font-weight="700" fill="#566576">SUP / 29</text>
+<text x="65" y="570" dominant-baseline="central" text-anchor="start" font-family="Arial, sans-serif" font-size="26" font-weight="400" fill="#203247">Руководство объясняет первую</text>
+<text x="65" y="605" dominant-baseline="central" text-anchor="start" font-family="Arial, sans-serif" font-size="26" font-weight="400" fill="#203247">минуту игры</text>
+<rect x="1040" y="490" width="520" height="180" rx="18" fill="#f4f7fa" stroke="#b19716" stroke-width="4"/>
+<text x="1065" y="525" dominant-baseline="central" text-anchor="start" font-family="Arial, sans-serif" font-size="29" font-weight="700" fill="#b19716">IDEA / 31</text>
+<text x="1065" y="570" dominant-baseline="central" text-anchor="start" font-family="Arial, sans-serif" font-size="26" font-weight="400" fill="#203247">Индикатор залпа объяснит</text>
+<text x="1065" y="605" dominant-baseline="central" text-anchor="start" font-family="Arial, sans-serif" font-size="26" font-weight="400" fill="#203247">недоступный выстрел</text>
+<rect x="40" y="745" width="520" height="180" rx="18" fill="#f4f7fa" stroke="#b19716" stroke-width="4"/>
+<text x="65" y="780" dominant-baseline="central" text-anchor="start" font-family="Arial, sans-serif" font-size="29" font-weight="700" fill="#b19716">IDEA / 32</text>
+<text x="65" y="825" dominant-baseline="central" text-anchor="start" font-family="Arial, sans-serif" font-size="26" font-weight="400" fill="#203247">Предупреждение о низком флоте</text>
+<text x="65" y="860" dominant-baseline="central" text-anchor="start" font-family="Arial, sans-serif" font-size="26" font-weight="400" fill="#203247">даст время отреагировать</text>
+<circle cx="800" cy="510" r="95" fill="#203247"/>
+<text x="800" y="510" dominant-baseline="central" text-anchor="middle" font-family="Arial, sans-serif" font-size="43" font-weight="700" fill="white">#ui</text>
+<text x="800" y="960" dominant-baseline="central" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="400" fill="#203247">Общий тег связывает темы; смысловые ссылки остаются внутри карточек.</text>
+</svg>

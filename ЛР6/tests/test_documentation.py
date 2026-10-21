@@ -90,9 +90,10 @@ def test_docstrings_cover_every_module_class_and_named_function():
 
 
 def test_documentation_links_resolve_recursively():
-    """Проверяет относительные ссылки всех Markdown-файлов включая docs/api."""
+    """Проверяет ссылки и изображения корневого README и Markdown внутри docs."""
     broken = []
-    for path in DOCS_ROOT.rglob("*.md"):
+    paths = [PROJECT_ROOT / "README.md", *DOCS_ROOT.rglob("*.md")]
+    for path in paths:
         content = path.read_text(encoding="utf-8")
         for target in re.findall(r"\[[^\]]*\]\(([^)]+)\)", content):
             url = urlsplit(target.strip().split(' "', 1)[0])

@@ -219,3 +219,15 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local tooling for laboratory work 6
+/ЛР6/.tools/
+/ЛР6/.tools-cache/
+/ЛР6/.poetry-cache/
+
+# Keep only the deliverable archives from laboratory work 6
+!/ЛР6/dist/
+/ЛР6/dist/*
+!/ЛР6/dist/*.zip
+!/ЛР6/dist/*.whl
+!/ЛР6/dist/*.gz

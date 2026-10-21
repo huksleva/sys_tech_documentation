@@ -909,16 +909,19 @@
 коллизий, достижения низа, загрузки ресурсов и завершения цикла.
 <code>tests/conftest.py</code> задаёт <code>SDL_VIDEODRIVER=dummy</code> и <code>SDL_AUDIODRIVER=dummy</code>.
 Это позволяет проверять правила без настоящего окна и аудиоустройства.</p>
-<p>Метапроверки рекурсивно обходят Markdown, проверяют относительные ссылки,
-существование страниц API, совпадение матрицы с Python-файлами, docstrings у
+<p>Метапроверки обходят корневой README и Markdown внутри <code>docs</code>, проверяют
+относительные ссылки, существование страниц API, совпадение матрицы с Python-файлами, docstrings у
 модулей/классов/функций, навигацию MkDocs и включение всех модулей в API.
 Проверки архиватора сравнивают два архива побайтно и ищут запрещённые файлы.
 Строгая сборка сайта отдельно проверяет разрешение директив mkdocstrings.</p>
 <h2 id="_3">Состав поставки</h2>
-<p><code>scripts/package_tools.py</code> разрешает только корневые <code>.gitignore</code>, <code>README.md</code>,
+<p><code>scripts/package_tools.py</code> разрешает только корневые <code>README.md</code>,
 <code>alien_invasion.py</code>, <code>mkdocs.yml</code>, <code>poetry.lock</code>, <code>poetry.toml</code>, <code>pyproject.toml</code>
 и деревья <code>docs</code>, <code>scripts</code>, <code>site</code>, <code>src</code>, <code>tests</code>. Внутри деревьев исключаются
 кэши, окружения, байткод и символьные ссылки. <code>dist</code> не включается в себя.</p>
+<p>Правила исключения окружений и локальных инструментов находятся в общем
+<code>.gitignore</code> репозитория, уровнем выше <code>ЛР6</code>. Отдельного <code>.gitignore</code> внутри
+лабораторной нет; для сборки ZIP этот служебный файл не требуется.</p>
 <p>ZIP называется <code>dist/alien-invasion-0.1.0-source.zip</code>. Файлы сортируются,
 временные отметки закреплены на 1 января 1980 г., права нормализованы.
 При одинаковых исходных байтах в одном окружении архивы идентичны.

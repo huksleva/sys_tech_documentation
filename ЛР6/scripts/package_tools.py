@@ -5,7 +5,6 @@ from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 INCLUDED_ROOT_FILES = (
-    ".gitignore",
     "README.md",
     "alien_invasion.py",
     "mkdocs.yml",
